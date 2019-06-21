@@ -1,3 +1,5 @@
+let searchSec = document.querySelector("#input-sec")
+let clearBtn = document.querySelector("#clear-btn")
 let searchInput = document.querySelector("#country-input")
 let searchBtn = document.querySelector("#country-btn")
 let allBtn = document.querySelector("#all-btn")
@@ -6,6 +8,7 @@ let topLevelDomain = document.querySelector("#topLevelDomain")
 let capital = document.querySelector("#capital")
 let currency = document.querySelector("#currency")
 let flagImg = document.querySelector(".flag")
+let allSearchToglle = false
 let tempNewSectionElement
 let tempNewFlagElement
 let tempNewDetailsElement
@@ -89,15 +92,31 @@ let drawSec = (countries) => {
     }
 }
 
+clearBtn.addEventListener("click", () => {
+    location.reload()
+})
+
 searchBtn.addEventListener("click", () => {
+    searchSec.style.display = 'none'
     let url = `https://restcountries.eu/rest/v2/name/${searchInput.value}?fields=name;capital;flag;topLevelDomain;currencies`
     console.log(url)
     $.get(url,drawSec)
 })
 
 allBtn.addEventListener("click", () => {
-    let url = `https://restcountries.eu/rest/v2/all/?fields=name;capital;flag;topLevelDomain;currencies`
-    $.get(url,drawSec)
+    if(!allSearchToglle){
+        allSearchToglle = true
+        // location.reload();
+        searchSec.style.display = 'none'
+        allBtn.textContent = 'Search'
+        let url = `https://restcountries.eu/rest/v2/all/?fields=name;capital;flag;topLevelDomain;currencies`
+        $.get(url,drawSec)
+    } else {
+        // location.reload();
+        searchSec.style.display = 'block'
+        allBtn.textContent = 'All'
+        allSearchToglle = false
+    } 
 })
 
 
