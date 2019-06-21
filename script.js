@@ -29,11 +29,11 @@ let drawSec = (countries) => {
         tempNewFlagElement = document.createElement("div")
         tempNewFlagElement.className="flag"
         tempNewFlagElement.style.backgroundImage = `url('${country.flag}')` 
-        // tempNewFlagElement.style.backgroundSize = 'cover' 
-        tempNewSectionElement.appendChild(tempNewFlagElement)
         tempNewDetailsElement = document.createElement("div") 
         tempNewDetailsElement.className="details"
         tempNewSectionElement.appendChild(tempNewDetailsElement)
+        tempNewSectionElement.appendChild(tempNewFlagElement)
+
         // name fildes
         tempNewNameElement = document.createElement("h2")
         tempNewNameElement.textContent = "Name:"
@@ -42,6 +42,7 @@ let drawSec = (countries) => {
         tempNewNameValElement.className = "txt"
         tempNewDetailsElement.appendChild(tempNewNameElement)
         tempNewDetailsElement.appendChild(tempNewNameValElement)
+
         // topleveldomain fildes
         tempNewTLPElement = document.createElement("h2")
         tempNewTLPElement.textContent = "Top Level Domain:"
@@ -50,20 +51,22 @@ let drawSec = (countries) => {
         tempNewTLPValElement.className = "txt"
         tempNewDetailsElement.appendChild(tempNewTLPElement)
         tempNewDetailsElement.appendChild(tempNewTLPValElement)
+
         // capital fildes
         tempNewCapitalElement = document.createElement("h2")
         tempNewCapitalElement.textContent = "capital:"
         tempNewCapitalValElement = document.createElement("h2")
-        tempNewCapitalValElement.textContent = country.capital
+        tempNewCapitalValElement.textContent = country.capital || "none"
         tempNewCapitalValElement.className = "txt"
         tempNewDetailsElement.appendChild(tempNewCapitalElement)
         tempNewDetailsElement.appendChild(tempNewCapitalValElement)
+
         // currency fildes
         tempNewCurrElement = document.createElement("h2")
         tempNewCurrElement.textContent = "currency:"
         tempNewCurrValElement = document.createElement("h2")
         tempNewCurrValElement.textContent = JSON.stringify(country.currencies)
-        tempNewCurrValElement.className = "txt"
+        tempNewCurrValElement.className = "txt" 
         tempNewDetailsElement.appendChild(tempNewCurrElement)
         tempNewDetailsElement.appendChild(tempNewCurrValElement)
     }
