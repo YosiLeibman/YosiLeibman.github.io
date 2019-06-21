@@ -28,7 +28,6 @@ let drawSec = (countries) => {
     for(let country of countries){
         console.log(country.name)
         tempNewSectionElement = document.createElement("section")
-        document.body.appendChild(tempNewSectionElement)
         tempNewSectionElement.className= "each-all-sec"
         tempNewFlagElement = document.createElement("div")
         tempNewFlagElement.className="flag"
@@ -72,9 +71,9 @@ let drawSec = (countries) => {
         tempCurrNameLI = document.createElement("li")
         tempCurrCodeLI = document.createElement("li")
         tempCurrSymbolLI = document.createElement("li")
-        tempCurrNameLI.innerHTML = `<h2>Name: </h2><span class="txt">${country.currencies[0].name}</span>`
-        tempCurrCodeLI.innerHTML = `<h2>Code: </h2><span class="txt">${country.currencies[0].code}</span>`
-        tempCurrSymbolLI.innerHTML = `<h2>Symbol: </h2><span class="txt">${country.currencies[0].symbol}</span>`
+        tempCurrNameLI.innerHTML = `<h2 class="curr-h2">Name: </h2><span class="txt"> ${country.currencies[0].name}</span>`
+        tempCurrCodeLI.innerHTML = `<h2 class="curr-h2">Code: </h2><span class="txt"> ${country.currencies[0].code}</span>`
+        tempCurrSymbolLI.innerHTML = `<h2 class="curr-h2">Symbol: </h2><span class="txt"> ${country.currencies[0].symbol}</span>`
         // tempNewCurrValElement = document.createElement("h2")
         // tempNewCurrValElement.textContent = JSON.stringify(country.currencies)
         // tempNewCurrValElement.className = "txt" 
@@ -84,6 +83,9 @@ let drawSec = (countries) => {
         tempCurrUL.appendChild(tempCurrCodeLI)
         tempCurrUL.appendChild(tempCurrSymbolLI)
         tempNewDetailsElement.appendChild(tempCurrUL)
+
+        document.body.appendChild(tempNewSectionElement)
+
     }
 }
 
