@@ -16,6 +16,10 @@ let tempNewTLPValElement
 let tempNewCapitalElement 
 let tempNewCapitalValElement 
 let tempNewCurrElement 
+let tempCurrUL
+let tempCurrCodeLI
+let tempCurrNameLI
+let tempCurrSymbolLI
 let tempNewCurrValElement
 let tempNewIMGElement
 
@@ -64,11 +68,22 @@ let drawSec = (countries) => {
         // currency fildes
         tempNewCurrElement = document.createElement("h2")
         tempNewCurrElement.textContent = "currency:"
-        tempNewCurrValElement = document.createElement("h2")
-        tempNewCurrValElement.textContent = JSON.stringify(country.currencies)
-        tempNewCurrValElement.className = "txt" 
+        tempCurrUL = document.createElement("ul")
+        tempCurrNameLI = document.createElement("li")
+        tempCurrCodeLI = document.createElement("li")
+        tempCurrSymbolLI = document.createElement("li")
+        tempCurrNameLI.innerHTML = `<h2>Name: </h2><span class="txt">${country.currencies[0].name}</span>`
+        tempCurrCodeLI.innerHTML = `<h2>Code: </h2><span class="txt">${country.currencies[0].code}</span>`
+        tempCurrSymbolLI.innerHTML = `<h2>Symbol: </h2><span class="txt">${country.currencies[0].symbol}</span>`
+        // tempNewCurrValElement = document.createElement("h2")
+        // tempNewCurrValElement.textContent = JSON.stringify(country.currencies)
+        // tempNewCurrValElement.className = "txt" 
         tempNewDetailsElement.appendChild(tempNewCurrElement)
-        tempNewDetailsElement.appendChild(tempNewCurrValElement)
+        // tempNewDetailsElement.appendChild(tempNewCurrValElement)
+        tempCurrUL.appendChild(tempCurrNameLI)
+        tempCurrUL.appendChild(tempCurrCodeLI)
+        tempCurrUL.appendChild(tempCurrSymbolLI)
+        tempNewDetailsElement.appendChild(tempCurrUL)
     }
 }
 
