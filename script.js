@@ -97,6 +97,10 @@ clearBtn.addEventListener("click", () => {
 })
 
 searchBtn.addEventListener("click", () => {
+    // check if prev shearch exist
+    if(document.querySelector(".each-all-sec")){
+        document.body.removeChild(tempNewSectionElement)
+    }
     searchSec.style.display = 'none'
     let url = `https://restcountries.eu/rest/v2/name/${searchInput.value}?fields=name;capital;flag;topLevelDomain;currencies`
     console.log(url)
@@ -104,6 +108,11 @@ searchBtn.addEventListener("click", () => {
 })
 
 allBtn.addEventListener("click", () => {
+    // check if prev shearch exist
+    if(document.querySelector(".each-all-sec")){
+        document.body.removeChild(tempNewSectionElement)
+    }
+    
     if(!allSearchToglle){
         allSearchToglle = true
         // location.reload();
